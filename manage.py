@@ -1,13 +1,20 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+
+import contextlib
 import os
 import sys
 
 
 def main():
     """Run administrative tasks."""
+    with contextlib.suppress(ImportError):
+        from dotenv import load_dotenv
+
+        load_dotenv()
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.base")
     try:
+        # Third-party Libraries
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
