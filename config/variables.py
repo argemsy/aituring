@@ -1,5 +1,7 @@
+# Standard Libraries
 import logging
 
+# Third-party Libraries
 from dotenv import load_dotenv
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -23,6 +25,15 @@ class Settings(BaseSettings):
         env="SECRET_KEY",
     )
     DEBUG: bool = Field(env="DEBUG", default=True)
+    DATABASE_URL: str | None = Field(
+        default=None,
+        env="DATABASE_URL",
+    )
+    SITE_NAME: str = Field(env="SITE_NAME", default="AiTuring!")
+    SITE_URL: str = Field(
+        env="SITE_URL",
+        default="http://localhost:8000",
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
