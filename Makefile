@@ -16,6 +16,8 @@ build: ## Build Docker services
 	docker-compose build --no-cache
 up: pull build ## Run all services
 	docker-compose up -d
+	make drop-db
+	make migrate
 	make ps
 ps: ## Show all services
 	docker-compose ps

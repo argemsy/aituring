@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+# Standard Libraries
 from pathlib import Path
 
+# Third-party Libraries
 import dj_database_url
 
+# Own Libraries
 from config.variables import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "apps.core",
+    "apps.user",
 ]
 
 MIDDLEWARE = [
